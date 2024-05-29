@@ -8,9 +8,11 @@ export class preload extends Phaser.Scene{
 
     // função de carregamento do jogo
     preload () {
-        this.load.image('botao', '../assets/botao_prototipo.png')
-        this.load.image('botaoSobreposto', '../assets/botao_prototipo-over.png')
-        this.load.image('botaoPressionado', '../assets/botao_prototipo-click.png')
+        this.load.image('botao', '../assets/botao_padrao/botao_prototipo.png')
+        this.load.image('botaoSobreposto', '../assets/botao_padrao/botao_prototipo-over.png')
+        this.load.image('botaoPressionado', '../assets/botao_padrao/botao_prototipo-click.png')
+
+        this.load.image('logo', '../assets/logo-teste-temporario.png')
     }
 
     // inicia a próxima cena após o carregamento
