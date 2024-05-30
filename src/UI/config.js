@@ -47,6 +47,26 @@ export class config_ extends Phaser.Scene {
         fundo_slider2.on('pointerdown', (pointer) => {
             this.atualizarSlider(pointer, fundo_slider2, thumb_slider2, volume2, texto_volume2);
         });
+
+        const texto_voltar = this.add.text(this.cameras.main.width/2, 576, 'Voltar', { fontSize: '34px', fill: '#fff9f0' })
+            .setOrigin()
+            .setInteractive()
+        texto_voltar
+            .on('pointerover', () => {
+                texto_voltar.setStyle({ fill: '#fcd8b6' })
+            }, this)
+            .on('pointerout', () => {
+                texto_voltar.setStyle({ fill: '#fff9f0' })
+            }, this)
+            .on('pointerdown', () => {
+                texto_voltar.setStyle({ fill: '#947b63' })
+                this.time.delayedCall(500, () => {
+                    this.scene.start(window.previousScene)
+                }, [], this)
+            }, this)
+            .on('pointerup', () => {
+                texto_voltar.setStyle({ fill: '#fcd8b6' })
+            }, this)
     }
 
     atualizarSlider (pointer, fundo_slider, thumb_slider, volume, texto) {

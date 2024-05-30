@@ -5,6 +5,8 @@ export class mainMenu extends Phaser.Scene {
     }
 
     create () {
+        window.previousScene = 'mainMenu'
+
         const logo = this.add.image(this.cameras.main.width/2, 160, 'logo')
         logo.setOrigin()       
 
