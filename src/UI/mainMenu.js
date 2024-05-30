@@ -31,25 +31,25 @@ export class mainMenu extends Phaser.Scene {
             }, this)
         
         // texto "Opções" e suas mecânicas de interatividade
-        const texto_opcoes = this.add.text(this.cameras.main.width/2, 400, 'Opções', { fontSize: '54px', fill: '#fff9f0' })
-        texto_opcoes
+        const texto_config = this.add.text(this.cameras.main.width/2, 400, 'Configurações', { fontSize: '54px', fill: '#fff9f0' })
+        texto_config
             .setOrigin()
             .setInteractive()
-        texto_opcoes
+        texto_config
             .on('pointerover', () => {
-                texto_opcoes.setStyle({ fill: '#fcd8b6' })
+                texto_config.setStyle({ fill: '#fcd8b6' })
             }, this)
             .on('pointerout', () => {
-                texto_opcoes.setStyle({ fill: '#fff9f0' })
+                texto_config.setStyle({ fill: '#fff9f0' })
             }, this)
             .on('pointerdown', () => {
-                texto_opcoes.setStyle({ fill: '#947b63' })
+                texto_config.setStyle({ fill: '#947b63' })
                 this.time.delayedCall(500, () => {
-                    this.scene.start('options')
+                    this.scene.start('config')
                 }, [], this)
             }, this)
             .on('pointerup', () => {
-                texto_opcoes.setStyle({ fill: '#fcd8b6' })
+                texto_config.setStyle({ fill: '#fcd8b6' })
             }, this)
 
         // texto "Créditos" e suas mecânicas de interatividade
