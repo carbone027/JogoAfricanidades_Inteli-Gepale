@@ -12,7 +12,7 @@ export class preload extends Phaser.Scene{
         this.load.image('botaoSobreposto', '../assets/botao_padrao/botao_prototipo-over.png')
         this.load.image('botaoPressionado', '../assets/botao_padrao/botao_prototipo-click.png')
 
-        this.load.image('logo', '../assets/logo-teste-temporario.png')
+        this.load.image('logo', '../assets/Logotipo/versao-3.png')
     }
 
     // inicia a próxima cena após o carregamento
