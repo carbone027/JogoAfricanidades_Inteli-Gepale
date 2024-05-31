@@ -1,3 +1,5 @@
+import centroDeEventos from "../centroDeEventos.js"
+
 export class config_ extends Phaser.Scene {
     
     constructor () {
@@ -62,6 +64,7 @@ export class config_ extends Phaser.Scene {
                 texto_voltar.setStyle({ fontSize: '34px', fill: '#947b63' })
                 this.time.delayedCall(500, () => {
                     this.scene.start(window.previousScene)
+                    centroDeEventos.emit('pause_voltar')
                 }, [], this)
             }, this)
             .on('pointerup', () => {
