@@ -60,17 +60,7 @@ export class secondScene extends Phaser.Scene {
 
       }, [], this);
 
-<<<<<<< Updated upstream
-        this.i_questao++;
-        if (this.i_questao < this.dadosQuiz.length) {
-            this.mostrarPergunta();
-        } else {
-            this.scene.start('finalMenu')
-        }
-    }
-=======
     }, [], this); 
   }
->>>>>>> Stashed changes
 
 }

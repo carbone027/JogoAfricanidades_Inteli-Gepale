@@ -25,11 +25,7 @@ let config = {
             debug: false
         }
     },
-<<<<<<< Updated upstream
-    scene: [ preload, mainMenu, credits, config_, firstScene, secondScene, finalMenu ] // lista as cenas presentes no jogo
-=======
-    scene: [ preload, mainMenu, credits, config_, firstScene, secondScene, thirdScene, fourthScene ] // lista as cenas presentes no jogo
->>>>>>> Stashed changes
+    scene: [ preload, mainMenu, credits, config_, firstScene, secondScene, thirdScene, fourthScene, finalMenu] // lista as cenas presentes no jogo
 }
 
 const game = new Phaser.Game(config); // cria um novo jogo com as configurações declaradas
