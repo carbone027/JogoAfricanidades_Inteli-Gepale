@@ -53,19 +53,19 @@ export class config_ extends Phaser.Scene {
             .setInteractive()
         texto_voltar
             .on('pointerover', () => {
-                texto_voltar.setStyle({ fill: '#fcd8b6' })
+                texto_voltar.setStyle({ fontSize: '38px', fill: '#fcd8b6' })
             }, this)
             .on('pointerout', () => {
-                texto_voltar.setStyle({ fill: '#fff9f0' })
+                texto_voltar.setStyle({ fontSize: '34px', fill: '#fff9f0' })
             }, this)
             .on('pointerdown', () => {
-                texto_voltar.setStyle({ fill: '#947b63' })
+                texto_voltar.setStyle({ fontSize: '34px', fill: '#947b63' })
                 this.time.delayedCall(500, () => {
                     this.scene.start(window.previousScene)
                 }, [], this)
             }, this)
             .on('pointerup', () => {
-                texto_voltar.setStyle({ fill: '#fcd8b6' })
+                texto_voltar.setStyle({ fontSize: '38px', fill: '#fcd8b6' })
             }, this)
     }
 
