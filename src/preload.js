@@ -17,7 +17,7 @@ export class preload extends Phaser.Scene{
 
     // inicia a próxima cena após o carregamento
     create () {
-        this.scene.start('mainMenu')
+        this.scene.start('finalMenu')
     }
 
 }
