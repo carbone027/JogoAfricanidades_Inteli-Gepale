@@ -4,6 +4,8 @@ import { preload } from './preload.js' // importa a cena de carregamento do jogo
 import { mainMenu } from './UI/mainMenu.js' // importa a cena de menu inicial
 import { firstScene } from './scenes/1.js' // importa a primeira cena
 import { secondScene } from './scenes/2.js'
+import { thirdScene } from './scenes/3.js'
+import { fourthScene } from './scenes/4.js'
 import { credits } from './UI/credits.js'
 import { config_ } from './UI/config.js'
 import { finalMenu } from './UI/finalMenu.js'
@@ -23,7 +25,11 @@ let config = {
             debug: false
         }
     },
+<<<<<<< Updated upstream
     scene: [ preload, mainMenu, credits, config_, firstScene, secondScene, finalMenu ] // lista as cenas presentes no jogo
+=======
+    scene: [ preload, mainMenu, credits, config_, firstScene, secondScene, thirdScene, fourthScene ] // lista as cenas presentes no jogo
+>>>>>>> Stashed changes
 }
 
-const game = new Phaser.Game(config) // cria um novo jogo com as configurações declaradas
+const game = new Phaser.Game(config); // cria um novo jogo com as configurações declaradas
