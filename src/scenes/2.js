@@ -1,93 +1,66 @@
 export class secondScene extends Phaser.Scene {
 
-    constructor () {
-        super ({ key: 'secondScene' })
-    }
+  constructor () {
+      super ({ key: 'secondScene' })
+      this.pause = true
+  }
+  
+  preload() {
+    this.load.image('varanda', '../assets/varanda.png');
+    this.load.image('sala-estar', '../assets/sala-estar.png');
+    this.load.image('cozinha', '../assets/cozinha.png');
+    this.load.image('sala-jantar', '../assets/sala-jantar.png');
+    this.load.image('escritorio', '../assets/escritorio.png');
 
-    create () {
-        this.dadosQuiz = [
-            {
-                pergunta: "Em qual local surgiu o Movimento Negro Unificado? ",
-                respostas: ["Praça dos Orixás no Distrito Federal", "Escadarias do Teatro Municipal de São Paulo", "Praça da república em São Paulo", "Cais do Valongo no Rio de Janeiro"],
-                respostaCorreta: 1
-            },
-            {
-                pergunta: "Qual é a maior planeta do Sistema Solar?",
-                respostas: ["Terra", "Marte", "Júpiter"],
-                respostaCorreta: 2
-            },
-            {
-                pergunta: "Quem pintou a Mona Lisa?",
-                respostas: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso"],
-                respostaCorreta: 1
-            }
-        ];
 
-        this.i_questao = 0;
-        this.textoFeedback = this.add.text(this.cameras.main.width/2, 500, '', {
-            fontSize: '20px',
-            color: '#fff9f0'
-        }).setOrigin();
+  }
 
-        this.mostrarPergunta();
-    }
+  create () {
+    this.background = this.add.image(0, 0, 'varanda').setOrigin(0, 0);
+    this.salaEstar = this.add.image(0, 0, 'sala-estar').setOrigin(0,0).setAlpha(0);
+    this.cozinha = this.add.image(0, 0, 'cozinha').setOrigin(0,0).setAlpha(0);
+    this.salaJantar = this.add.image(0, 0, 'sala-jantar').setOrigin(0,0).setAlpha(0);
+    this.escritorio = this.add.image(0, 0, 'escritorio').setOrigin(0,0).setAlpha(0);
 
-    mostrarPergunta() {
-        const perguntaAtual = this.dadosQuiz[this.i_questao];
-        this.textoQuestao = this.add.text(this.cameras.main.width/2, 100, perguntaAtual.pergunta, {
-            fontSize: '20px',
-            color: '#fff9f0',
-            align: 'center',
-        }).setOrigin();
 
-        this.respostas = [];
-        perguntaAtual.respostas.forEach((resposta, index) => {
-            const botao = this.add.text(this.cameras.main.width/2, 200 + index * 50, resposta, {
-                fontSize: '20px',
-                color: '#fff9f0',
-            }).setOrigin().setInteractive();
+    this.tweens.add ({
+      targets: [this.salaEstar],
+      alpha: 1, 
+      duration: 500, 
+      ease: 'Linear',  
+    });
+    
+    this.time.delayedCall(3500, function() {
+      this.tweens.add ({
+        targets: [this.cozinha],
+        alpha: 1, 
+        duration: 500, 
+        ease: 'Linear',  
+      });  
 
-            botao.on('pointerover', () => {
-                botao.setStyle({ fill: '#fcd8b6' });
-            });
-            botao.on('pointerout', () => {
-                botao.setStyle({ fill: '#fff9f0' });
-            });
-            botao.on('pointerdown', () => {
-                botao.setStyle({ fill: '#947b63' })
-                this.checarResposta(index);
-            });
-            botao.on('pointerup', () => {
-                botao.setStyle({ fill: '#fff9f0' })
-            })
-
-            this.respostas.push(botao);
+      this.time.delayedCall(3500, function() {
+        this.tweens.add ({
+          targets: [this.salaJantar],
+          alpha: 1, 
+          duration: 500, 
+          ease: 'Linear',  
         });
-    }
 
-    checarResposta(index) {
-        const perguntaAtual = this.dadosQuiz[this.i_questao];
-        const respostaCorreta = index === perguntaAtual.respostaCorreta;
-        
-        this.textoFeedback.setText(respostaCorreta ? "Correto!" : "Errado! A resposta correta é " + perguntaAtual.respostas[perguntaAtual.respostaCorreta]);
-        
-        this.time.delayedCall(1500, () => {
-            this.proximaPergunta();
-        });
-    }
+        this.time.delayedCall(3500, function() {   
+          this.tweens.add ({
+            targets: [this.escritorio],
+            alpha: 1, 
+            duration: 500, 
+            ease: 'Linear',  
+          });
+          
+          this.scene.start('thirdScene');
+    
+        }, [], this);
 
-    proximaPergunta() {
-        // Limpe a tela
-        this.textoQuestao.destroy();
-        this.respostas.forEach(button => button.destroy());
-        this.textoFeedback.setText('');
+      }, [], this);
 
-        this.i_questao++;
-        if (this.i_questao < this.dadosQuiz.length) {
-            this.mostrarPergunta();
-        } else {
-            this.scene.start('finalMenu')
-        }
-    }
+    }, [], this); 
+  }
 
 }
