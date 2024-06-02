@@ -60,7 +60,7 @@ export class secondScene extends Phaser.Scene {
 
       }, [], this);
 
-    }, [], this); 
+    }, [], this); 2
   }
 
 }

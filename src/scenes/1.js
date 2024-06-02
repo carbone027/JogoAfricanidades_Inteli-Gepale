@@ -18,8 +18,8 @@ export class firstScene extends Phaser.Scene {
 
     create () {
       this.background = this.add.image(0, 0, 'varanda').setOrigin(0, 0);
-      this.avo = this.add.image(200, 350, 'avo').setScale(0.5).setAlpha(0);
-      this.personagem = this.add.image(800, 370, 'personagem').setScale(0.45).setAlpha(0);
+      this.avo = this.add.image(200, 450, 'avo').setScale(0.5).setAlpha(0);
+      this.personagem = this.add.image(840, 463, 'personagem').setScale(0.6).setAlpha(0);
       this.botao = this.add.image(225, 475, 'botao-continuar').setScale(0.5).setAlpha(0).setInteractive();
       this.botao2 = this.add.image(740, 475, 'botao-continuar').setScale(0.5).setAlpha(0).setInteractive();
       this.botao3 = this.add.image(225, 475, 'botao-continuar').setScale(0.5).setAlpha(0).setInteractive();
