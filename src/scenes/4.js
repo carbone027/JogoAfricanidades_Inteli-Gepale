@@ -9,7 +9,7 @@ export class fourthScene extends Phaser.Scene {
             {
                 pergunta: "Em qual local surgiu o Movimento Negro Unificado?",
                 respostas: ["Praça dos Orixás no Distrito Federal", "Escadarias do Teatro Municipal de São Paulo.", "Praça da república em São Paulo", "Cais do Valongo no Rio de Janeiro"],
-                respostaCorreta: 0
+                respostaCorreta: 1
             },
             {
                 pergunta: "Qual é a maior planeta do Sistema Solar?",
