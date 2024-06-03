@@ -7,8 +7,8 @@ export class fourthScene extends Phaser.Scene {
     create () {
         this.dadosQuiz = [
             {
-                pergunta: "Qual é a capital da França?",
-                respostas: ["Paris", "Londres", "Roma"],
+                pergunta: "Em qual local surgiu o Movimento Negro Unificado?",
+                respostas: ["Praça dos Orixás no Distrito Federal", "Escadarias do Teatro Municipal de São Paulo.", "Praça da república em São Paulo", "Cais do Valongo no Rio de Janeiro"],
                 respostaCorreta: 0
             },
             {
