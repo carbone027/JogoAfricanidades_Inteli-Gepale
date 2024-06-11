@@ -1,3 +1,5 @@
+import centroDeEventos from "../centroDeEventos.js";
+
 export class fourthScene extends Phaser.Scene {
 
     constructor () {
@@ -5,9 +7,10 @@ export class fourthScene extends Phaser.Scene {
     }
 
     create () {
+
         this.dadosQuiz = [
             {
-                pergunta: "Em qual local surgiu o Movimento Negro Unificado?",
+                pergunta: "Em qual local surgiu o Movimento Negro\nUnificado?",
                 respostas: ["Praça dos Orixás no Distrito Federal", "Escadarias do Teatro Municipal de São Paulo.", "Praça da república em São Paulo", "Cais do Valongo no Rio de Janeiro"],
                 respostaCorreta: 1
             },
@@ -25,8 +28,9 @@ export class fourthScene extends Phaser.Scene {
 
         this.i_questao = 0;
         this.textoFeedback = this.add.text(this.cameras.main.width/2, 500, '', {
-            fontSize: '20px',
-            color: '#fff9f0'
+            fontSize: '24px',
+            color: '#000000',
+            align: 'center'
         }).setOrigin();
 
         this.mostrarPergunta();
@@ -34,31 +38,32 @@ export class fourthScene extends Phaser.Scene {
 
     mostrarPergunta() {
         const perguntaAtual = this.dadosQuiz[this.i_questao];
-        this.textoQuestao = this.add.text(this.cameras.main.width/2, 100, perguntaAtual.pergunta, {
-            fontSize: '20px',
-            color: '#fff9f0',
+        this.textoQuestao = this.add.text(this.cameras.main.width/2, 120, perguntaAtual.pergunta, {
+            fontSize: '32px',
+            color: '#000000',
+            fontWeight: 'bold',
             align: 'center',
         }).setOrigin();
 
         this.respostas = [];
         perguntaAtual.respostas.forEach((resposta, index) => {
-            const botao = this.add.text(this.cameras.main.width/2, 200 + index * 50, resposta, {
-                fontSize: '20px',
-                color: '#fff9f0',
+            const botao = this.add.text(this.cameras.main.width/2, 220 + index * 50, resposta, {
+                fontSize: '24px',
+                color: '#000000',
             }).setOrigin().setInteractive();
 
             botao.on('pointerover', () => {
-                botao.setStyle({ fill: '#fcd8b6' });
+                botao.setStyle({ fill: '#525252', fontSize: '28px' });
             });
             botao.on('pointerout', () => {
-                botao.setStyle({ fill: '#fff9f0' });
+                botao.setStyle({ fill: '#000000', fontSize: '24px' });
             });
             botao.on('pointerdown', () => {
-                botao.setStyle({ fill: '#947b63' })
+                botao.setStyle({ fill: '#919191', fontSize: '24px' })
                 this.checarResposta(index);
             });
             botao.on('pointerup', () => {
-                botao.setStyle({ fill: '#fff9f0' })
+                botao.setStyle({ fill: '#525252', fontSize: '28px' })
             })
 
             this.respostas.push(botao);
@@ -69,7 +74,7 @@ export class fourthScene extends Phaser.Scene {
         const perguntaAtual = this.dadosQuiz[this.i_questao];
         const respostaCorreta = index === perguntaAtual.respostaCorreta;
         
-        this.textoFeedback.setText(respostaCorreta ? "Correto!" : "Errado! A resposta correta é " + perguntaAtual.respostas[perguntaAtual.respostaCorreta]);
+        this.textoFeedback.setText(respostaCorreta ? "Correto!" : "Errado! A resposta correta é\n" + perguntaAtual.respostas[perguntaAtual.respostaCorreta]);
         
         this.time.delayedCall(1500, () => {
             this.proximaPergunta();
@@ -86,7 +91,8 @@ export class fourthScene extends Phaser.Scene {
         if (this.i_questao < this.dadosQuiz.length) {
             this.mostrarPergunta();
         } else {
-            this.scene.start('mainMenu')
+            centroDeEventos.emit('quizFinished')
+            this.scene.stop()
         }
     }
 
