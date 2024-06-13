@@ -92,7 +92,7 @@ export class fourthScene extends Phaser.Scene {
         if (this.i_questao < this.dadosQuiz.length) {
             this.mostrarPergunta();
         } else {
-            this.scene.start('mainMenu')
+            this.scene.start('mapa')
         }
     }
 

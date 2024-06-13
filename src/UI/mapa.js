@@ -1,68 +1,68 @@
-export class mainMenu extends Phaser.Scene {
+export class mapa extends Phaser.Scene {
 
     constructor () {
-        super ({ key: 'mainMenu' })
+        super ({ key: 'mapa' })
     }
 
     preload() {
-      this.load.image('background', '../assets/telaInicialBackground.png');
-      this.load.image('startButton', '../assets/startButton.png');
-      this.load.image('creditos', '../assets/creditos.png');
+      this.load.image('mapaBackground', '../assets/mapa.png');
+      this.load.image('fase1Button', '../assets/fase1Button.png');
+      this.load.image('homeButton', '../assets/homeButton.png');
     }
 
     create () {
         window.previousScene = 'mainMenu'
 
-        const background = this.add.image(0, 0, 'background')
+        const background = this.add.image(0, 0, 'mapaBackground')
         background.setOrigin(0,0);       
 
         // texto "Iniciar Jogo" e suas mecânicas de interatividade 
-        const startButton = this.add.image(this.cameras.main.width/2, this.cameras.main.height/2+120, 'startButton').setOrigin().setInteractive();
+        const fase1Button = this.add.image(214, 145, 'fase1Button').setOrigin().setInteractive();
         
-        startButton
+        fase1Button
             .on('pointerover', () => {
-                startButton.setScale(1.1);
+                fase1Button.setScale(1.1);
             }, this)
             .on('pointerout', () => {
-                startButton.setScale(1.0);
+                fase1Button.setScale(1.0);
             }, this)
             .on('pointerdown', () => {
                 this.time.delayedCall(500, () => {
                     this.scene.start('firstScene')
                 }, [], this)
             }, this);
+          
+          fase1Button.on('pointerover', () => {
+              this.input.setDefaultCursor("pointer");
+          });
+          fase1Button.on('pointerout', () => {
+            this.input.setDefaultCursor("default");
+          });
   
-
-        // texto "Créditos" e suas mecânicas de interatividade
-        const creditos = this.add.image(this.cameras.main.width/2, this.cameras.main.height/2+190, 'creditos').setOrigin().setInteractive();
-
-        creditos
+        const homeButton = this.add.image(this.cameras.main.width/2+400, this.cameras.main.height/2+230, 'homeButton').setOrigin().setInteractive();
+        
+        homeButton
             .on('pointerover', () => {
-              creditos.setScale(1.1);
+                homeButton.setScale(1.1);
             }, this)
             .on('pointerout', () => {
-              creditos.setScale(1.0);
+                homeButton.setScale(1.0);
             }, this)
             .on('pointerdown', () => {
-               
                 this.time.delayedCall(500, () => {
-                    this.scene.start('credits')
+                    this.scene.start('mainMenu')
                 }, [], this)
             }, this);
 
-            startButton.on('pointerover', () => {
+            homeButton.on('pointerover', () => {
               this.input.setDefaultCursor("pointer");
             });
-            startButton.on('pointerout', () => {
+            homeButton.on('pointerout', () => {
               this.input.setDefaultCursor("default");
             });
-    
-            creditos.on('pointerover', () => {
-              this.input.setDefaultCursor("pointer");
-            });
-            creditos.on('pointerout', () => {
-              this.input.setDefaultCursor("default");
-            });
+
+ 
+
     }
 
 }
