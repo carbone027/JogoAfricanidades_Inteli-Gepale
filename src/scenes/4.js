@@ -1,5 +1,3 @@
-import centroDeEventos from "../centroDeEventos.js";
-
 export class fourthScene extends Phaser.Scene {
 
     constructor () {
