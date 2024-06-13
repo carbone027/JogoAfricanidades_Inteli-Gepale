@@ -12,14 +12,20 @@ export class fourthScene extends Phaser.Scene {
                 respostaCorreta: 1
             },
             {
-                pergunta: "Qual é a maior planeta do Sistema Solar?",
-                respostas: ["Terra", "Marte", "Júpiter"],
-                respostaCorreta: 2
+                pergunta: "Um dos principais motivos para a criação do MNU foi:",
+                respostas: ["Discriminação racial com atletas negros do Clube Regatas Tiête",
+                  "Assassinato de Abdias Nascimento",
+                  "O fim da ditadura militar no Brasil",
+                  "Aniversário de 100 anos da abolição da escravatura"],
+                respostaCorreta: 3
             },
             {
-                pergunta: "Quem pintou a Mona Lisa?",
-                respostas: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso"],
-                respostaCorreta: 1
+                pergunta: "Estavam envolvidos na criação do MNU:",
+                respostas: ["Lélia Gonzalez e Milton Santos",
+                  "Zumbi dos Palmares e Dandara",
+                  "Machado de Assis e Luís Gama",
+                  "Laudelina de Campos Melo e Carolina Maria de Jesus"],
+                respostaCorreta: 0
             }
         ];
 
