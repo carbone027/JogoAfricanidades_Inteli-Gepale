@@ -25,7 +25,7 @@ export class credits extends Phaser.Scene {
             }, this)
             .on('pointerdown', () => {
                 this.time.delayedCall(500, () => {
-                    this.scene.start('firstScene')
+                    this.scene.start('mainMenu')
                 }, [], this)
             }, this);
 
