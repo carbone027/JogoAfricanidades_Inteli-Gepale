@@ -24,7 +24,7 @@ export class mainMenu extends Phaser.Scene {
             .on('pointerdown', () => {
                 texto_iniciarJogo.setStyle({ fontSize: '54px', fill: '#947b63' })
                 this.time.delayedCall(500, () => {
-                    this.scene.start('firstScene')
+                    this.scene.start('firstScene');
                 }, [], this)
             }, this)
             .on('pointerup', () => {

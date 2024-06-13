@@ -6,6 +6,7 @@ import { firstScene } from './scenes/1.js' // importa a primeira cena
 import { secondScene } from './scenes/2.js'
 import { thirdScene } from './scenes/3.js'
 import { fourthScene } from './scenes/4.js'
+import { fifthScene} from './scenes/5.js'
 import { credits } from './UI/credits.js'
 import { config_ } from './UI/config.js'
 import { finalMenu } from './UI/finalMenu.js'
@@ -25,7 +26,7 @@ let config = {
             debug: false
         }
     },
-    scene: [ preload, mainMenu, credits, config_, firstScene, secondScene, thirdScene, fourthScene, finalMenu] // lista as cenas presentes no jogo
+    scene: [ preload, mainMenu, credits, config_, firstScene, secondScene, thirdScene, fourthScene, fifthScene, finalMenu] // lista as cenas presentes no jogo
 }
 
 const game = new Phaser.Game(config); // cria um novo jogo com as configurações declaradas
