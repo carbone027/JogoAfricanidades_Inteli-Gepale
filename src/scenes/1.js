@@ -36,6 +36,15 @@ export class firstScene extends Phaser.Scene {
         ease: 'Linear',  
       });
 
+      this.tweens.add({
+        targets: this.botao,
+        scaleX: this.botao.scaleX * 1.05, // Aumenta a escala em 15%
+        scaleY: this.botao.scaleY * 1.05,
+        duration: 500, // duração em milissegundos
+        yoyo: true, // faça a animação voltar ao estado original
+        repeat: -1 // -1 para repetir indefinidamente
+    });
+
       this.botao.on('pointerdown', () => { 
 
         //animação para tornar invisível o pop-up e o botão
@@ -53,7 +62,16 @@ export class firstScene extends Phaser.Scene {
                     alpha: 1, 
                     duration: 500, 
                     ease: 'Linear'
-                })
+                });
+
+                this.tweens.add({
+                  targets: this.botao2,
+                  scaleX: this.botao2.scaleX * 1.05, // Aumenta a escala em 15%
+                  scaleY: this.botao2.scaleY * 1.05,
+                  duration: 500, // duração em milissegundos
+                  yoyo: true, // faça a animação voltar ao estado original
+                  repeat: -1 // -1 para repetir indefinidamente
+                });
             }
         })
       })
@@ -75,7 +93,16 @@ export class firstScene extends Phaser.Scene {
                       alpha: 1, 
                       duration: 500, 
                       ease: 'Linear'
-                  })
+                  });
+
+                  this.tweens.add({
+                    targets: this.botao3,
+                    scaleX: this.botao3.scaleX * 1.05, // Aumenta a escala em 15%
+                    scaleY: this.botao3.scaleY * 1.05,
+                    duration: 500, // duração em milissegundos
+                    yoyo: true, // faça a animação voltar ao estado original
+                    repeat: -1 // -1 para repetir indefinidamente
+                  });
               }
           })
         })
@@ -98,7 +125,16 @@ export class firstScene extends Phaser.Scene {
                       alpha: 1, 
                       duration: 500, 
                       ease: 'Linear'
-                  })
+                  });
+
+                  this.tweens.add({
+                    targets: this.botao4,
+                    scaleX: this.botao4.scaleX * 1.05, // Aumenta a escala em 15%
+                    scaleY: this.botao4.scaleY * 1.05,
+                    duration: 500, // duração em milissegundos
+                    yoyo: true, // faça a animação voltar ao estado original
+                    repeat: -1 // -1 para repetir indefinidamente
+                  });
               }
           });
         });
