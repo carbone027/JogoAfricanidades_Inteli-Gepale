@@ -49,6 +49,20 @@ export class mainMenu extends Phaser.Scene {
                     this.scene.start('credits')
                 }, [], this)
             }, this);
+
+            startButton.on('pointerover', () => {
+              this.input.setDefaultCursor("pointer");
+            });
+            startButton.on('pointerout', () => {
+              this.input.setDefaultCursor("default");
+            });
+    
+            creditos.on('pointerover', () => {
+              this.input.setDefaultCursor("pointer");
+            });
+            creditos.on('pointerout', () => {
+              this.input.setDefaultCursor("default");
+            });
     }
 
 }
