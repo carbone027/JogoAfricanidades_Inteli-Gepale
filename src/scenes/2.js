@@ -4,16 +4,6 @@ export class secondScene extends Phaser.Scene {
       super ({ key: 'secondScene' })
       this.pause = true
   }
-  
-  preload() {
-    this.load.image('varanda', '../assets/varanda.png');
-    this.load.image('sala-estar', '../assets/sala-estar.png');
-    this.load.image('cozinha', '../assets/cozinha.png');
-    this.load.image('sala-jantar', '../assets/sala-jantar.png');
-    this.load.image('escritorio', '../assets/escritorio.png');
-
-
-  }
 
   create () {
     this.background = this.add.image(0, 0, 'varanda').setOrigin(0, 0);
