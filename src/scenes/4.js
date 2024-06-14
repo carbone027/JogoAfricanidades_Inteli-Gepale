@@ -11,7 +11,7 @@ export class fourthScene extends Phaser.Scene {
         this.dadosQuiz = [
             {
                 pergunta: "Em qual local surgiu o Movimento Negro\nUnificado?",
-                respostas: ["Praça dos Orixás no Distrito Federal", "Escadarias do Teatro Municipal de São Paulo.", "Praça da república em São Paulo", "Cais do Valongo no Rio de Janeiro"],
+                respostas: ["Praça dos Orixás no Distrito Federal", "Escadarias do Teatro Municipal de São Paulo", "Praça da república em São Paulo", "Cais do Valongo no Rio de Janeiro"],
                 respostaCorreta: 1
             },
             {
@@ -34,7 +34,7 @@ export class fourthScene extends Phaser.Scene {
 
         this.i_questao = 0;
         this.textoFeedback = this.add.text(this.cameras.main.width/2, 500, '', {
-            fontSize: '24px',
+            fontSize: '20px',
             color: '#000000',
             align: 'center'
         }).setOrigin();
@@ -100,8 +100,10 @@ export class fourthScene extends Phaser.Scene {
             centroDeEventos.emit('quizFinished')
             this.scene.stop()
 
-            this.scene.start('mapa')
+            
         }
+      
+        this.scene.start('mapa')
     }
-
+    
 }
