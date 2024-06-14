@@ -99,6 +99,7 @@ export class fourthScene extends Phaser.Scene {
         } else {
             centroDeEventos.emit('quizFinished')
             this.scene.stop()
+
             this.scene.start('mapa')
         }
     }
