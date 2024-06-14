@@ -34,7 +34,7 @@ export class fourthScene extends Phaser.Scene {
 
         this.i_questao = 0;
         this.textoFeedback = this.add.text(this.cameras.main.width/2, 500, '', {
-            fontSize: '20px',
+            fontSize: '24px',
             color: '#000000',
             align: 'center'
         }).setOrigin();
@@ -100,10 +100,10 @@ export class fourthScene extends Phaser.Scene {
             centroDeEventos.emit('quizFinished')
             this.scene.stop()
 
-            
+            this.scene.start('mapa')
         }
       
-        this.scene.start('mapa')
+        
     }
     
 }
