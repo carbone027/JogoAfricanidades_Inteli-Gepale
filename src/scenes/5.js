@@ -15,8 +15,8 @@ export class fifthScene extends Phaser.Scene {
                 respostaCorreta: 1
             },
             {
-                pergunta: "Um dos principais motivos para a criação do MNU foi:",
-                respostas: ["Discriminação racial com atletas negros do Clube Regatas Tiête",
+                pergunta: "Um dos principais motivos para a \n criação do MNU foi:",
+                respostas: ["Discriminação racial com atletas negros do \n Clube Regatas Tiête",
                   "Assassinato de Abdias Nascimento",
                   "O fim da ditadura militar no Brasil",
                   "Aniversário de 100 anos da abolição da escravatura"],
@@ -56,6 +56,7 @@ export class fifthScene extends Phaser.Scene {
             const botao = this.add.text(this.cameras.main.width/2, 220 + index * 50, resposta, {
                 fontSize: '24px',
                 color: '#000000',
+                align: "center",
             }).setOrigin().setInteractive();
 
             botao.on('pointerover', () => {
