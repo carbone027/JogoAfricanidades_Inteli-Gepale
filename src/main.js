@@ -26,7 +26,7 @@ let config = {
             debug: false
         }
     },
-    scene: [ preload, mainMenu, credits, config_, firstScene, secondScene, thirdScene, fourthScene, fifthScene, finalMenu] // lista as cenas presentes no jogo
+    scene: [ preload, mainMenu, credits,mapa, firstScene, secondScene, thirdScene, fourthScene, fifthScene, finalMenu] // lista as cenas presentes no jogo
 }
 
 const game = new Phaser.Game(config); // cria um novo jogo com as configurações declaradas
