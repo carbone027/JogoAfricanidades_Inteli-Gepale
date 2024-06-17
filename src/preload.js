@@ -20,7 +20,14 @@ export class preload extends Phaser.Scene{
         this.load.image('sala-jantar', '../assets/sala-jantar.png');
         this.load.image('escritorio', '../assets/escritorio.png');
 
-        this.load.image('escritorio', '../assets/escritorio.png')
+        this.load.image('escritorio', '../assets/escritorio.png');
+
+        this.load.image('seta_vermelha','../assets/mentalMap/setaVermelha.png');
+        this.load.image('mnu','../assets/mentalMap/mnu.png');
+        this.load.image('oQue','../assets/mentalMap/oQueE.png');
+        this.load.image('porque','../assets/mentalMap/porque.png');
+        this.load.image('como','../assets/mentalMap/como.png');
+        this.load.image('para','../assets/mentalMap/para.png');
     }
 
     // inicia a próxima cena após o carregamento
