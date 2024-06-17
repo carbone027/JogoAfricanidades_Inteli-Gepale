@@ -11,18 +11,24 @@ export class fifthScene extends Phaser.Scene {
         this.dadosQuiz = [
             {
                 pergunta: "Em qual local surgiu o Movimento Negro\nUnificado?",
-                respostas: ["Praça dos Orixás no Distrito Federal", "Escadarias do Teatro Municipal de São Paulo.", "Praça da república em São Paulo", "Cais do Valongo no Rio de Janeiro"],
+                respostas: ["Praça dos Orixás no Distrito Federal", "Escadarias do Teatro Municipal de São Paulo", "Praça da república em São Paulo", "Cais do Valongo no Rio de Janeiro"],
                 respostaCorreta: 1
             },
             {
-                pergunta: "Qual é a maior planeta do Sistema Solar?",
-                respostas: ["Terra", "Marte", "Júpiter"],
-                respostaCorreta: 2
+                pergunta: "Um dos principais motivos para a criação do MNU foi:",
+                respostas: ["Discriminação racial com atletas negros do Clube Regatas Tiête",
+                  "Assassinato de Abdias Nascimento",
+                  "O fim da ditadura militar no Brasil",
+                  "Aniversário de 100 anos da abolição da escravatura"],
+                respostaCorreta: 3
             },
             {
-                pergunta: "Quem pintou a Mona Lisa?",
-                respostas: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso"],
-                respostaCorreta: 1
+                pergunta: "Estavam envolvidos na criação do MNU:",
+                respostas: ["Lélia Gonzalez e Milton Santos",
+                  "Zumbi dos Palmares e Dandara",
+                  "Machado de Assis e Luís Gama",
+                  "Laudelina de Campos Melo e Carolina Maria de Jesus"],
+                respostaCorreta: 0
             }
         ];
 
@@ -93,7 +99,11 @@ export class fifthScene extends Phaser.Scene {
         } else {
             centroDeEventos.emit('quizFinished')
             this.scene.stop()
-        }
-    }
 
+            this.scene.start('mapa')
+        }
+      
+        
+    }
+    
 }
