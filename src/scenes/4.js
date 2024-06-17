@@ -92,5 +92,4 @@ export class fourthScene extends Phaser.Scene {
         text1.destroy();
         text2.destroy();
     }
-    
 }

@@ -28,7 +28,7 @@ export class mainMenu extends Phaser.Scene {
             }, this)
             .on('pointerdown', () => {
                 this.time.delayedCall(500, () => {
-                    this.scene.start('mapa')
+                    this.scene.start('mapa');
                 }, [], this)
             }, this);
   
