@@ -4,94 +4,181 @@ export class firstScene extends Phaser.Scene {
         super ({ key: 'firstScene' })
         this.pause = true
     }
+    
+    preload() {
+      this.load.image('varanda', '../assets/varanda.png');
+      this.load.image('avo', '../assets/avo.png');
+      this.load.image('personagem', '../assets/personagem.png');
+      this.load.image('dialogo1-personagem', '../assets/dialogo1-personagem.png');
+      this.load.image('dialogo1-avo', '../assets/dialogo1-avo.png');
+      this.load.image('dialogo2-personagem', '../assets/dialogo2-personagem.png');
+      this.load.image('dialogo2-avo', '../assets/dialogo2-avo.png');
+      this.load.image('botao-continuar', '../assets/botao-continuar.png');
+    }
 
     create () {
-        this.i = 0
-        this.i_texto = 0
-        this.textos = [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum\ndignissim tempor. Maecenas rhoncus maximus leo, dapibus placerat tortor\nsollicitudin.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis est erat.\nIn interdum metus sit amet vulputate convallis. Integer laoreet ipsum\nvitae nulla gravida pharetra. Vivamus semper est et."
-        ]
-        this.textoDigitado = this.add.text(30, 450, '', {
-            fontSize: '20px',
-            color: '#fff9f0'
+      this.background = this.add.image(0, 0, 'varanda').setOrigin(0, 0);
+      this.avo = this.add.image(200, 450, 'avo').setScale(0.5).setAlpha(0);
+      this.personagem = this.add.image(840, 463, 'personagem').setScale(0.6).setAlpha(0);
+      this.botao = this.add.image(225, 475, 'botao-continuar').setScale(0.5).setAlpha(0).setInteractive();
+      this.botao2 = this.add.image(740, 475, 'botao-continuar').setScale(0.5).setAlpha(0).setInteractive();
+      this.botao3 = this.add.image(225, 475, 'botao-continuar').setScale(0.5).setAlpha(0).setInteractive();
+      this.botao4 = this.add.image(740, 475, 'botao-continuar').setScale(0.5).setAlpha(0).setInteractive();
+      this.dialogo1Personagem = this.add.image(400, 400, 'dialogo1-personagem').setScale(0.5).setAlpha(0);
+      this.dialogo1Avo = this.add.image(550, 400, 'dialogo1-avo').setScale(0.5).setAlpha(0);
+      this.dialogo2Personagem = this.add.image(400, 400, 'dialogo2-personagem').setScale(0.5).setAlpha(0);
+      this.dialogo2Avo = this.add.image(550, 400, 'dialogo2-avo').setScale(0.5).setAlpha(0);
+
+      this.tweens.add ({
+        targets: [this.dialogo1Personagem, this.botao, this.personagem],
+        alpha: 1, 
+        duration: 500, 
+        ease: 'Linear',  
+      });
+
+      this.tweens.add({
+        targets: this.botao,
+        scaleX: this.botao.scaleX * 1.05, // Aumenta a escala em 15%
+        scaleY: this.botao.scaleY * 1.05,
+        duration: 500, // duração em milissegundos
+        yoyo: true, // faça a animação voltar ao estado original
+        repeat: -1 // -1 para repetir indefinidamente
+    });
+
+      this.botao.on('pointerdown', () => { 
+
+        //animação para tornar invisível o pop-up e o botão
+        this.tweens.add ({
+            targets: [this.dialogo1Personagem, this.botao, this.personagem],
+            alpha: 0, 
+            duration: 500, 
+            ease: 'Linear',  
+
+            // Comando estabelecendo outra ordem de comandos quando o anterior for concluído
+            onComplete: () => {
+
+                this.tweens.add ({
+                    targets: [this.dialogo1Avo, this.botao2, this.avo],
+                    alpha: 1, 
+                    duration: 500, 
+                    ease: 'Linear'
+                });
+
+                this.tweens.add({
+                  targets: this.botao2,
+                  scaleX: this.botao2.scaleX * 1.05, // Aumenta a escala em 15%
+                  scaleY: this.botao2.scaleY * 1.05,
+                  duration: 500, // duração em milissegundos
+                  yoyo: true, // faça a animação voltar ao estado original
+                  repeat: -1 // -1 para repetir indefinidamente
+                });
+            }
         })
-        const velocidadeDigitacao = 80
-        this.evento_digitarTexto = this.time.addEvent({
-            delay: velocidadeDigitacao,
-            loop: true,
-            callback: this.digitarTexto,
-            callbackScope: this
+      })
+
+        this.botao2.on('pointerdown', () => { 
+
+          //animação para tornar invisível o pop-up e o botão
+          this.tweens.add ({
+              targets: [this.dialogo1Avo, this.botao2, this.avo],
+              alpha: 0, 
+              duration: 500, 
+              ease: 'Linear',  
+  
+              // Comando estabelecendo outra ordem de comandos quando o anterior for concluído
+              onComplete: () => {
+  
+                  this.tweens.add ({
+                      targets: [this.dialogo2Personagem, this.botao3, this.personagem],
+                      alpha: 1, 
+                      duration: 500, 
+                      ease: 'Linear'
+                  });
+
+                  this.tweens.add({
+                    targets: this.botao3,
+                    scaleX: this.botao3.scaleX * 1.05, // Aumenta a escala em 15%
+                    scaleY: this.botao3.scaleY * 1.05,
+                    duration: 500, // duração em milissegundos
+                    yoyo: true, // faça a animação voltar ao estado original
+                    repeat: -1 // -1 para repetir indefinidamente
+                  });
+              }
+          })
         })
 
-        this.input.on('pointerdown', this.mostrarTexto, this)
+        
+        this.botao3.on('pointerdown', () => { 
 
-        this.botao = this.add.image(940, 570, 'botao')
-            .setScale(0.2)
-            .setInteractive()
-            .setVisible(false)
-        this.botao
-            .on('pointerover', () => {
-                this.botao.setTexture('botaoSobreposto')
-            })
-            .on('pointerout', () => {
-                this.botao.setTexture('botao')
-            })
-            .on('pointerdown', () => {
-                this.botao.setTexture('botaoPressionado')
-                this.time.delayedCall(500, () => {
-                    this.scene.start('secondScene')
-                }, [], this)
-            })
-            .on('pointerup', () => {
-                this.botao.setTexture('botaoSobreposto')
-            })
-    }
+          //animação para tornar invisível o pop-up e o botão
+          this.tweens.add ({
+              targets: [this.dialogo2Personagem, this.botao3, this.personagem],
+              alpha: 0, 
+              duration: 500, 
+              ease: 'Linear',  
+  
+              // Comando estabelecendo outra ordem de comandos quando o anterior for concluído
+              onComplete: () => {
+  
+                  this.tweens.add ({
+                      targets: [this.dialogo2Avo, this.botao4, this.avo],
+                      alpha: 1, 
+                      duration: 500, 
+                      ease: 'Linear'
+                  });
 
-    digitarTexto() {
-        const textoAtual = this.textos[this.i_texto]
-        if (this.i < textoAtual.length) {
-            this.textoDigitado.text += textoAtual.charAt(this.i);
-            this.i++;
-        } else {
-            this.evento_digitarTexto.remove()
-            this.mostrarProximoTexto()
-        }
-    }
+                  this.tweens.add({
+                    targets: this.botao4,
+                    scaleX: this.botao4.scaleX * 1.05, // Aumenta a escala em 15%
+                    scaleY: this.botao4.scaleY * 1.05,
+                    duration: 500, // duração em milissegundos
+                    yoyo: true, // faça a animação voltar ao estado original
+                    repeat: -1 // -1 para repetir indefinidamente
+                  });
+              }
+          });
+        });
+          
+        this.botao4.on('pointerdown', () => { 
+          this.time.delayedCall(500, () => {
+            this.scene.start('secondScene')
+          }, [], this)
+          
+        });
+          
 
-    mostrarTexto() {
-        if (this.pause) {
-            const textoAtual = this.textos[this.i_texto]
-            this.textoDigitado.text = textoAtual
-            this.evento_digitarTexto.remove()
-            this.pause = false
-        } else if (!this.pause) {
-            this.mostrarProximoTexto()
-            this.pause = true
-        }
-    }
 
-    mostrarProximoTexto() {
-        console.log(this.i_texto)
-        this.i_texto++
-        if (this.i_texto < this.textos.length) {
-            this.i = 0;
-            this.textoDigitado.text = '';
 
-            const velocidadeDigitacao = 80;
-            this.evento_digitarTexto = this.time.addEvent({
-                delay: velocidadeDigitacao,
-                loop: true,
-                callback: this.digitarTexto,
-                callbackScope: this
-            });
-        } else if (this.i_texto >= this.textos.length) {
-            this.i_texto -= 1
-            this.botao.setVisible(true)
-            const textoAtual = this.textos[this.i_texto]
-            this.textoDigitado.text = textoAtual
-            this.evento_digitarTexto.remove()
-        }
+        this.botao.on('pointerover', () => {
+          this.input.setDefaultCursor("pointer");
+        });
+        this.botao.on('pointerout', () => {
+          this.input.setDefaultCursor("default");
+        });
+
+        this.botao2.on('pointerover', () => {
+          this.input.setDefaultCursor("pointer");
+        });
+        this.botao2.on('pointerout', () => {
+          this.input.setDefaultCursor("default");
+        });
+
+        this.botao3.on('pointerover', () => {
+          this.input.setDefaultCursor("pointer");
+        });
+        this.botao3.on('pointerout', () => {
+          this.input.setDefaultCursor("default");
+        });
+
+        this.botao4.on('pointerover', () => {
+          this.input.setDefaultCursor("pointer");
+        });
+        this.botao4.on('pointerout', () => {
+          this.input.setDefaultCursor("default");
+        });
+
+
+        
     }
 
 }
