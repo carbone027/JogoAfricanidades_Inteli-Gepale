@@ -5,9 +5,9 @@ export class mainMenu extends Phaser.Scene {
     }
 
     preload() {
-      this.load.image('background', './assets/telaInicialBackground.png');
-      this.load.image('startButton', './assets/startButton.png');
-      this.load.image('creditos', './assets/creditos.png');
+      this.load.image('background', '././assets/telaInicialBackground.png');
+      this.load.image('startButton', '././assets/startButton.png');
+      this.load.image('creditos', '././assets/creditos.png');
     }
 
     create () {

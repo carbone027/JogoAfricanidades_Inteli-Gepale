@@ -5,9 +5,9 @@ export class mapa extends Phaser.Scene {
     }
 
     preload() {
-      this.load.image('mapaBackground', '../assets/mapa.png');
-      this.load.image('fase1Button', '../assets/fase1Button.png');
-      this.load.image('homeButton', '../assets/homeButton.png');
+      this.load.image('mapaBackground', '././assets/mapa.png');
+      this.load.image('fase1Button', '././assets/fase1Button.png');
+      this.load.image('homeButton', '././assets/homeButton.png');
     }
 
     create () {
