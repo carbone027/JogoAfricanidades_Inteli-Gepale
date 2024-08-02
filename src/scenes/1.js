@@ -6,14 +6,14 @@ export class firstScene extends Phaser.Scene {
     }
     
     preload() {
-      this.load.image('varanda', '../assets/varanda.png');
-      this.load.image('avo', '../assets/avo.png');
-      this.load.image('personagem', '../assets/personagem.png');
-      this.load.image('dialogo1-personagem', '../assets/dialogo1-personagem.png');
-      this.load.image('dialogo1-avo', '../assets/dialogo1-avo.png');
-      this.load.image('dialogo2-personagem', '../assets/dialogo2-personagem.png');
-      this.load.image('dialogo2-avo', '../assets/dialogo2-avo.png');
-      this.load.image('botao-continuar', '../assets/botao-continuar.png');
+      this.load.image('varanda', './assets/varanda.png');
+      this.load.image('avo', './assets/avo.png');
+      this.load.image('personagem', './assets/personagem.png');
+      this.load.image('dialogo1-personagem', './assets/dialogo1-personagem.png');
+      this.load.image('dialogo1-avo', './assets/dialogo1-avo.png');
+      this.load.image('dialogo2-personagem', './assets/dialogo2-personagem.png');
+      this.load.image('dialogo2-avo', './assets/dialogo2-avo.png');
+      this.load.image('botao-continuar', './assets/botao-continuar.png');
     }
 
     create () {
