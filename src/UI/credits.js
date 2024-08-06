@@ -5,8 +5,8 @@ export class credits extends Phaser.Scene {
     }
 
     preload () {
-      this.load.image('backgroundCredits', '../assets/backgroundCredits.png');
-      this.load.image('homeButton', '../assets/homeButton.png');
+      this.load.image('backgroundCredits', '././assets/backgroundCredits.png');
+      this.load.image('homeButton', '././assets/homeButton.png');
     }
     create () {
 
